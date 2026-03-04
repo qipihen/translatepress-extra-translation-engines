@@ -3,7 +3,8 @@
  * Plugin Name: TranslatePress Extra Translation Engines
  * Description: Adds OpenRouter and affordable domestic translation engines to TranslatePress automatic translation.
  * Version: 0.3.1
- * Author: Codex
+ * Author: zach
+ * Author URI: https://github.com/qipihen
  * License: GPL2+
  * Text Domain: translatepress-openrouter-engine
  */
