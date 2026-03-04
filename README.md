@@ -70,7 +70,7 @@
 - 中文：[`docs/zh-CN/README.md`](docs/zh-CN/README.md)
 - English: [`docs/en-US/README.md`](docs/en-US/README.md)
 
-### 4.1 文本翻译价格展示（样式参考三方平台）
+### 4.1 文本翻译价格对比（直观表格）
 
 | 翻译引擎 | 优惠价格（元/百万字符） | 参考原价（平台标注） | 优惠比例（原价） | 并发 |
 |---|---:|---:|---:|---|
