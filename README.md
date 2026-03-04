@@ -1,9 +1,17 @@
 ﻿# TranslatePress Extra Translation Engines
 
+文档语言 / Documentation：
+
+- 中文：[`docs/zh-CN/README.md`](docs/zh-CN/README.md)
+- English: [`docs/en-US/README.md`](docs/en-US/README.md)
+
+`TranslatePress` 是一个 WordPress 多语言插件（可视化翻译 + 自动翻译）。
+本项目是 TranslatePress 的扩展插件，只负责新增自动翻译引擎，不替代 TranslatePress 本体。
+
 给 [TranslatePress](https://translatepress.com/) 自动翻译功能增加更多可选引擎：
 
 - OpenRouter / OpenAI Compatible
-- Trans Home Proxy API（单 Token 三方中转）
+- Third-Party Proxy API（Single Token，仅示例）
 - Youdao Translate API
 - Baidu Translate API
 - Tencent Cloud TMT
@@ -19,12 +27,12 @@
 
 - 可直接接入 OpenRouter（或任意 OpenAI 兼容接口）
 - 可接入国内云厂商翻译 API
-- 可接入单 Key 的三方中转平台（例如 `tb.trans-home.com` 这一类）
+- 可接入单 Key 的三方中转平台（`tb.trans-home.com` 仅作接口示例，无商业合作/无商业性质）
 - 保持 TranslatePress 原有工作流（启用自动翻译、测试 API、写入翻译表）
 
 ## 2. 安装方式
 
-1. 下载本仓库代码，或下载 `release zip`。
+1. 下载本仓库代码，或下载 `release zip`（推荐文件名：`translatepress-extra-translation-engines-v0.3.1.zip`）。
 2. 上传插件目录到：`/wp-content/plugins/translatepress-openrouter-engine`
 3. 在 WordPress 后台启用插件：`TranslatePress Extra Translation Engines`
 4. 进入：`TranslatePress -> Automatic Translation`
@@ -47,19 +55,20 @@
 - `Chunk Size`（默认 `20`）
 - `Language Whitelist`（可选，逗号分隔）
 
-### 3.2 三方中转单 Key（Trans Home Proxy API）
+### 3.2 三方中转单 Key（Third-Party Proxy API，仅示例）
 
-在 `Alternative Engines` 选择 `Trans Home Proxy API`，填写：
+在 `Alternative Engines` 选择 `Third-Party Proxy API (Single Token, Example)`，填写：
 
-- `Trans Home Token`
+- `Proxy API Token`
 
 通常不需要改的默认值：
 
-- `Base URL`: `https://tb.trans-home.com`
+- `Base URL`: `https://tb.trans-home.com`（仅示例）
 - `Batch API Path`: `/api/index/translateBatch`
-- `MIME Type`: `0`（纯文本）
+- `内容类型（纯文本/HTML）`: `纯文本`（默认）
 
 如果你的中转服务商文档不同，按文档改 URL/path 即可。
+说明：示例域名仅用于演示“单 Token 中转协议”，不构成任何商业背书。
 
 ## 4. 价格对比（直观版）
 
@@ -80,7 +89,7 @@
 | 有道（中转） | ¥25 | ¥50/百万字符 | 5 折 | 5~1000（平台标注） |
 | ChatGPT（中转） | ¥50 | ¥100/百万字符 | 5 折 | 5~1000（平台标注） |
 
-说明：上表为 `tb.trans-home.com` 首页公开展示口径（抓取时间：2026-03-04），实际价格请以其实时页面为准。
+说明：上表为 `tb.trans-home.com` 首页公开展示口径（抓取时间：2026-03-04），仅作示例展示，无商业合作。
 
 ### 4.2 官方直连参考价（API）
 
@@ -106,7 +115,7 @@
 
 你这种“单 Token 中转”不是官方 Youdao/Baidu 的 `AppKey + Secret` 模式，所以要走独立引擎。
 
-本项目已内置 `Trans Home Proxy API` 引擎，专门适配这种三方接口模式，文档见：
+本项目已内置 `Third-Party Proxy API (Single Token, Example)` 引擎，专门适配这种三方接口模式，文档见：
 
 - [`docs/zh-CN/third-party-proxy-guide.md`](docs/zh-CN/third-party-proxy-guide.md)
 - [`docs/zh-CN/extension-guide.md`](docs/zh-CN/extension-guide.md)
@@ -119,14 +128,14 @@
 
 ### Q2：我只有一个 Key，怎么办？
 
-选 `Trans Home Proxy API` 或 `OpenRouter / OpenAI Compatible` 这类单 key 接口。
+选 `Third-Party Proxy API (Single Token, Example)` 或 `OpenRouter / OpenAI Compatible` 这类单 key 接口。
 
 ### Q3：界面不显示新引擎怎么办？
 
 1. 确认插件已启用。
 2. 到 `TranslatePress -> Automatic Translation` 的 `Alternative Engines` 下拉中查看。
 3. 开启调试：在页面 URL 追加 `&trp_or_debug=1`，应看到类似：
-   - `[TPOR 0.3.0] loaded. trp_machine_translation_engines ...`
+   - `[TPOR 0.3.1] loaded. trp_machine_translation_engines ...`
 
 ## 8. 兼容性
 
@@ -154,4 +163,4 @@ php tests/response-parser-test.php
 - Google Cloud Translation Pricing: https://cloud.google.com/translate/pricing
 - DeepL API Pricing: https://www.deepl.com/en/pro-api
 - OpenRouter Models API: https://openrouter.ai/api/v1/models
-- 三方中转示例页面: https://tb.trans-home.com/
+- 三方中转示例页面（仅示例、无商业合作）: https://tb.trans-home.com/

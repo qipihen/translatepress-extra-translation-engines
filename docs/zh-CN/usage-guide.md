@@ -2,6 +2,8 @@
 
 本文是完整的中文使用手册，适用于你要把 TranslatePress 自动翻译从官方 API 扩展到 OpenRouter、国内 API、以及三方中转 API 的场景。
 
+`TranslatePress` 是 WordPress 多语言插件；本项目是它的自动翻译引擎扩展插件。
+
 ## 1. 后台入口
 
 WordPress 后台：`TranslatePress -> Automatic Translation`
@@ -25,12 +27,14 @@ WordPress 后台：`TranslatePress -> Automatic Translation`
 - `Language Whitelist`：可选，逗号分隔（例如 `en,zh-cn,ja`）
 - `Site URL / Site Name`：可选
 
-### Trans Home Proxy API（单 Token）
+### Third-Party Proxy API（单 Token，仅示例）
 
-- `Trans Home Token`：必填
-- `Base URL`：默认 `https://tb.trans-home.com`
+- `Proxy API Token`：必填
+- `Base URL`：默认 `https://tb.trans-home.com`（仅示例）
 - `Batch API Path`：默认 `/api/index/translateBatch`
-- `MIME Type`：`0` 纯文本，`1` HTML
+- `内容类型（纯文本/HTML）`：下拉选择 `纯文本` 或 `HTML`
+
+说明：示例域名仅用于接口协议演示，不代表任何商业合作。
 
 ### Youdao Translate API（官方）
 
@@ -66,8 +70,8 @@ WordPress 后台：`TranslatePress -> Automatic Translation`
 
 ## 三方中转推荐
 
-- `MIME Type = 0`（先验证纯文本）
-- 翻译 HTML 内容时再改 `1`
+- `内容类型 = 纯文本`（先验证稳定性）
+- 翻译 HTML 内容时再切换 `内容类型 = HTML`
 - 接口稳定后再放开站点全量自动翻译
 
 ## 4. API 测试与故障排查
@@ -86,7 +90,7 @@ WordPress 后台：`TranslatePress -> Automatic Translation`
 1. 确认插件已激活
 2. 刷新 `TranslatePress -> Automatic Translation`
 3. 在 URL 加 `&trp_or_debug=1`，应出现 debug 提示：
-   - `[TPOR 0.3.0] loaded. trp_machine_translation_engines ...`
+   - `[TPOR 0.3.1] loaded. trp_machine_translation_engines ...`
 4. 若提示中已包含引擎值（如 `openrouter,transhome_translate`），但下拉没有，优先清缓存与浏览器缓存
 
 ## 6. 生产环境建议

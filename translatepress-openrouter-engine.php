@@ -2,7 +2,7 @@
 /**
  * Plugin Name: TranslatePress Extra Translation Engines
  * Description: Adds OpenRouter and affordable domestic translation engines to TranslatePress automatic translation.
- * Version: 0.3.0
+ * Version: 0.3.1
  * Author: Codex
  * License: GPL2+
  * Text Domain: translatepress-openrouter-engine
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'TRP_OR_PLUGIN_VERSION' ) ) {
-	define( 'TRP_OR_PLUGIN_VERSION', '0.3.0' );
+	define( 'TRP_OR_PLUGIN_VERSION', '0.3.1' );
 }
 
 if ( ! defined( 'TRP_OR_PLUGIN_DIR' ) ) {
@@ -124,7 +124,7 @@ function trp_or_get_custom_engines() {
 		),
 		array(
 			'value' => 'transhome_translate',
-			'label' => __( 'Trans Home Proxy API', 'translatepress-openrouter-engine' ),
+			'label' => __( 'Third-Party Proxy API (Single Token, Example)', 'translatepress-openrouter-engine' ),
 			'class' => 'TRP_Transhome_Machine_Translator',
 		),
 		array(
@@ -229,7 +229,7 @@ function trp_or_add_settings( $mt_settings ) {
 }
 
 /**
- * Render Trans Home proxy settings (single token mode).
+ * Render third-party proxy settings (single token mode).
  *
  * @param array $mt_settings
  * @param mixed $machine_translator
@@ -258,7 +258,7 @@ function trp_or_render_transhome_settings( $mt_settings, $machine_translator ) {
 	$mime_type = ( '1' === $mime_type ) ? '1' : '0';
 	?>
 	<div class="trp-engine trp-automatic-translation-engine__container" id="transhome_translate">
-		<span class="trp-primary-text-bold"><?php esc_html_e( 'Trans Home Token', 'translatepress-openrouter-engine' ); ?></span>
+		<span class="trp-primary-text-bold"><?php esc_html_e( 'Proxy API Token', 'translatepress-openrouter-engine' ); ?></span>
 		<div class="trp-automatic-translation-api-key-container">
 			<input type="text"
 			       class="<?php echo esc_attr( implode( ' ', $text_input_classes ) ); ?>"
@@ -275,7 +275,7 @@ function trp_or_render_transhome_settings( $mt_settings, $machine_translator ) {
 			<span class="trp-error-inline trp-settings-error-text"><?php echo esc_html( $error_message ); ?></span>
 		<?php endif; ?>
 		<span class="trp-description-text">
-			<?php esc_html_e( 'For trans-home single-token proxy API. This is not the official Youdao/Baidu AppKey+Secret mode.', 'translatepress-openrouter-engine' ); ?>
+			<?php esc_html_e( 'Single-token third-party proxy API mode. The default endpoint is an example only, with no commercial affiliation.', 'translatepress-openrouter-engine' ); ?>
 		</span>
 
 		<div class="trp-deepl-settings__container" style="margin-top:16px;">
@@ -289,13 +289,13 @@ function trp_or_render_transhome_settings( $mt_settings, $machine_translator ) {
 		</div>
 
 		<div class="trp-deepl-settings__container" style="margin-top:16px;">
-			<span class="trp-primary-text-bold"><?php esc_html_e( 'Content Type', 'translatepress-openrouter-engine' ); ?></span>
+			<span class="trp-primary-text-bold"><?php esc_html_e( '内容类型（纯文本/HTML）', 'translatepress-openrouter-engine' ); ?></span>
 			<select class="trp-text-input" name="trp_machine_translation_settings[transhome-mime-type]">
-				<option value="0" <?php selected( $mime_type, '0' ); ?>><?php esc_html_e( 'Plain text', 'translatepress-openrouter-engine' ); ?></option>
-				<option value="1" <?php selected( $mime_type, '1' ); ?>><?php esc_html_e( 'HTML (recommended for website content)', 'translatepress-openrouter-engine' ); ?></option>
+				<option value="0" <?php selected( $mime_type, '0' ); ?>><?php esc_html_e( '纯文本', 'translatepress-openrouter-engine' ); ?></option>
+				<option value="1" <?php selected( $mime_type, '1' ); ?>><?php esc_html_e( 'HTML（适合网站内容）', 'translatepress-openrouter-engine' ); ?></option>
 			</select>
 			<span class="trp-description-text">
-				<?php esc_html_e( 'Select how strings are parsed before translation.', 'translatepress-openrouter-engine' ); ?>
+				<?php esc_html_e( '选择翻译前的内容解析方式。', 'translatepress-openrouter-engine' ); ?>
 			</span>
 		</div>
 	</div>

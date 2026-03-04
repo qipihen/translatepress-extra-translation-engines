@@ -5,12 +5,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Trans Home proxy API engine (single-token mode).
+ * Third-party proxy API engine (single-token mode).
  */
 class TRP_Transhome_Machine_Translator extends TRP_Machine_Translator {
 
 	/**
-	 * Translate strings using Trans Home batch endpoint.
+	 * Translate strings using the configured proxy batch endpoint.
 	 *
 	 * @param array       $new_strings
 	 * @param string      $target_language_code
@@ -194,24 +194,24 @@ class TRP_Transhome_Machine_Translator extends TRP_Machine_Translator {
 
 			if ( empty( $this->get_api_key() ) ) {
 				$is_error       = true;
-				$return_message = __( 'Please enter Trans Home token.', 'translatepress-openrouter-engine' );
+				$return_message = __( 'Please enter proxy API token.', 'translatepress-openrouter-engine' );
 			} else {
 				$response = $this->test_request();
 				$code     = wp_remote_retrieve_response_code( $response );
 
 				if ( 200 !== (int) $code ) {
 					$is_error       = true;
-					$return_message = __( 'Trans Home request failed. Please verify token and endpoint.', 'translatepress-openrouter-engine' );
+					$return_message = __( 'Proxy API request failed. Please verify token and endpoint.', 'translatepress-openrouter-engine' );
 				} else {
 					$body = json_decode( wp_remote_retrieve_body( $response ), true );
 					if ( ! is_array( $body ) ) {
 						$is_error       = true;
-						$return_message = __( 'Trans Home API returned invalid JSON.', 'translatepress-openrouter-engine' );
+						$return_message = __( 'Proxy API returned invalid JSON.', 'translatepress-openrouter-engine' );
 					} elseif ( isset( $body['code'] ) && 1 !== (int) $body['code'] ) {
 						$is_error       = true;
 						$return_message = ! empty( $body['msg'] )
 							? (string) $body['msg']
-							: __( 'Trans Home API returned an error.', 'translatepress-openrouter-engine' );
+							: __( 'Proxy API returned an error.', 'translatepress-openrouter-engine' );
 					}
 				}
 			}
@@ -386,7 +386,7 @@ class TRP_Transhome_Machine_Translator extends TRP_Machine_Translator {
 	}
 
 	/**
-	 * Map TP locale to trans-home accepted language code.
+	 * Map TP locale to proxy provider language code.
 	 *
 	 * @param string $language_code
 	 * @param bool   $is_source

@@ -19,7 +19,7 @@
 | chatgpt翻译（中转） | ¥50 | 5 折 | ¥100 / 百万字符 | 5~1000（支持扩展） |
 | yandex翻译（中转） | ¥25 | 8.3 折 | ¥30 / 百万字符 | 5~1000（支持扩展） |
 
-说明：此表来自 `tb.trans-home.com` 首页公开展示内容（2026-03-04 抓取）。
+说明：此表来自 `tb.trans-home.com` 首页公开展示内容（2026-03-04 抓取），仅作示例展示，不代表商业合作。
 
 ## 2. 官方 API 直连价格（核心条目）
 
@@ -113,4 +113,4 @@
 - Google Cloud Translation Pricing: <https://cloud.google.com/translate/pricing>
 - DeepL API Pricing: <https://www.deepl.com/en/pro-api>
 - OpenRouter Models API: <https://openrouter.ai/api/v1/models>
-- 三方中转示例首页: <https://tb.trans-home.com/>
+- 三方中转示例首页（仅示例、无商业合作）: <https://tb.trans-home.com/>

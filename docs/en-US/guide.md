@@ -1,10 +1,13 @@
 # TranslatePress Extra Translation Engines - English Guide
 
+`TranslatePress` is a WordPress multilingual plugin.
+This plugin extends TranslatePress automatic translation with additional engines.
+
 This guide explains how to use this plugin to extend TranslatePress automatic translation with:
 
 - OpenRouter / OpenAI-compatible APIs
 - Domestic cloud translation APIs
-- Single-token third-party proxy APIs (like trans-home style endpoints)
+- Single-token third-party proxy APIs (example endpoint only, non-commercial reference)
 
 ## 1. Where to configure
 
@@ -35,17 +38,19 @@ Optional:
 - `Chunk Size`
 - `Language Whitelist`
 
-## Trans Home Proxy API (single token)
+## Third-Party Proxy API (Single Token, Example)
 
 Required:
 
-- `Trans Home Token`
+- `Proxy API Token`
 
 Defaults (usually keep them as is):
 
-- `Base URL`: `https://tb.trans-home.com`
+- `Base URL`: `https://tb.trans-home.com` (example only)
 - `Batch API Path`: `/api/index/translateBatch`
-- `MIME Type`: `0` (plain text), `1` (HTML)
+- `Content Type (Plain text / HTML)`: choose from dropdown
+
+The sample endpoint is documentation-only and does not imply sponsorship or commercial affiliation.
 
 ## 3. When AI translation is better than Google Translate v2 / DeepL
 
@@ -71,7 +76,7 @@ If engines do not show up:
 1. Make sure the plugin is activated.
 2. Open `TranslatePress -> Automatic Translation`.
 3. Append `&trp_or_debug=1` to the URL and verify a notice like:
-   - `[TPOR 0.3.0] loaded. trp_machine_translation_engines ...`
+   - `[TPOR 0.3.1] loaded. trp_machine_translation_engines ...`
 
 If API test fails:
 
@@ -85,5 +90,4 @@ If API test fails:
 - Google Cloud Translation Pricing: <https://cloud.google.com/translate/pricing>
 - DeepL API Pricing: <https://www.deepl.com/en/pro-api>
 - OpenRouter Models: <https://openrouter.ai/api/v1/models>
-- Third-party proxy sample: <https://tb.trans-home.com/>
-
+- Third-party proxy sample (example only, no commercial affiliation): <https://tb.trans-home.com/>
