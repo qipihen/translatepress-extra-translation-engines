@@ -65,6 +65,11 @@
 
 完整对比见：[`docs/zh-CN/pricing-comparison.md`](docs/zh-CN/pricing-comparison.md)
 
+中英文文档入口：
+
+- 中文：[`docs/zh-CN/README.md`](docs/zh-CN/README.md)
+- English: [`docs/en-US/README.md`](docs/en-US/README.md)
+
 ### 4.1 文本翻译价格展示（样式参考三方平台）
 
 | 翻译引擎 | 优惠价格（元/百万字符） | 参考原价（平台标注） | 优惠比例（原价） | 并发 |
@@ -85,7 +90,19 @@
 | DeepL API Pro | `$5.49/月` + `$25/百万字符`（按量） |
 | OpenRouter（模型计费） | 按 input/output token 计费，模型差异大（详见价格文档） |
 
-## 5. 三方 API 扩展说明
+## 5. AI 翻译何时优于 Google Translate v2 / DeepL
+
+更具体的场景对照见：
+
+- 中文：[`docs/zh-CN/pricing-comparison.md`](docs/zh-CN/pricing-comparison.md)
+- English: [`docs/en-US/guide.md`](docs/en-US/guide.md)
+
+结论（简版）：
+
+- 需要风格控制、语气控制、术语一致性的页面，AI 通常优于 Google v2 / DeepL。
+- 纯信息型、低风险、超大批量文本，Google v2 / DeepL 往往更省心。
+
+## 6. 三方 API 扩展说明
 
 你这种“单 Token 中转”不是官方 Youdao/Baidu 的 `AppKey + Secret` 模式，所以要走独立引擎。
 
@@ -94,7 +111,7 @@
 - [`docs/zh-CN/third-party-proxy-guide.md`](docs/zh-CN/third-party-proxy-guide.md)
 - [`docs/zh-CN/extension-guide.md`](docs/zh-CN/extension-guide.md)
 
-## 6. 常见问题
+## 7. 常见问题
 
 ### Q1：为什么有些引擎要填两项密钥？
 
@@ -111,13 +128,13 @@
 3. 开启调试：在页面 URL 追加 `&trp_or_debug=1`，应看到类似：
    - `[TPOR 0.3.0] loaded. trp_machine_translation_engines ...`
 
-## 7. 兼容性
+## 8. 兼容性
 
 - 已验证可注入 TranslatePress 自动翻译引擎列表。
 - 兼容通过 `trp_before_running_hooks` 的加载顺序场景。
 - 不修改 TranslatePress 核心文件。
 
-## 8. 开发与测试
+## 9. 开发与测试
 
 ```bash
 php -l translatepress-openrouter-engine.php
@@ -126,7 +143,7 @@ php -l includes/class-trp-transhome-machine-translator.php
 php tests/response-parser-test.php
 ```
 
-## 9. License
+## 10. License
 
 `GPL-2.0-or-later`
 
