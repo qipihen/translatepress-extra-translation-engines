@@ -11,7 +11,7 @@
 
 这个插件的目标很明确：在不改 TranslatePress 核心代码的前提下，给 WordPress 多语言站点提供更低成本、更可控的自动翻译方案。
 
-关键词（SEO）：`TranslatePress OpenRouter`、`TranslatePress 自动翻译`、`WordPress 低成本翻译 API`、`TranslatePress 国内翻译接口`、`TranslatePress 三方中转 API`。
+适用人群：希望在 TranslatePress 中接入更多翻译引擎，并控制翻译成本的 WordPress 站点维护者与开发者。
 
 ## 1. 为什么用这个插件
 
